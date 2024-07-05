@@ -1,12 +1,10 @@
 package prosper_case.caseJava;
 
 
-
-import org.springframework.data.annotation.Id;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Produto {
@@ -23,6 +21,9 @@ public class Produto {
         this.nome = nome;
         this.preco = preco;
         this.descricao = descricao;
+    }
+
+    public Produto() {
     }
 
     public Long getId() {

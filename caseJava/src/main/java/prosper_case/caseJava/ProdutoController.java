@@ -34,8 +34,14 @@ public class ProdutoController {
         return produto.map(ResponseEntity::ok)
                       .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
- 
-    
+
+   
+    @GetMapping
+    public ResponseEntity<Iterable<Produto>> getAllProdutos() {
+        Iterable<Produto> produtos = produtoRepository.findAll();
+        return new ResponseEntity<>(produtos, HttpStatus.OK);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Produto> updateProduto(@PathVariable Long id, @RequestBody Produto updatedProduto) {
         Optional<Produto> produtoOptional = produtoRepository.findById(id);
